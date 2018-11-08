@@ -11,7 +11,7 @@ import java.io.IOException;
 public class PopularOnGoing {
 
     private final String  mainPageUrl="https://www4.gogoanime.se/";
-    private final String pagedetails="page-recent-release-ongoing.html?page=1";
+    private final String pagedetails="page-recent-release-ongoing.html?page=";
     private ArrayList<AnimeModel> list;
 
 	
@@ -23,9 +23,50 @@ public class PopularOnGoing {
 	
 	public void startScraping() {
 		
+		getAllPages();
+		
+		
+	}
+	
+	
+	 private String getURL(String murl){
+
+	        if(murl.contains("url")){
+	            String[] temp=murl.split("url");
+	           String[] strings= temp[1].split("'");
+	           return strings[1];
+	        }
+
+	    return null;
+	    }
+
+	 public ArrayList<AnimeModel> getList() {
+		return list;
+	}
+	 
+	 
+	private void getAllPages() {
+        int pageNumber=0;
+        try {
+            Document doc = Jsoup.connect(mainPageUrl).get();
+            Elements container = doc.select("div.pagination.recent");
+            Elements pagesContainer= container.select("li");
+            for(Element pages:pagesContainer){
+                pageNumber++;
+                extractPage(mainPageUrl+pagedetails+pageNumber);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+	}
+	
+	
+	private void extractPage(String url) {
 
         try {
-            Document doc = Jsoup.connect(mainPageUrl+pagedetails).get();
+            Document doc = Jsoup.connect(url).get();
             Elements container = doc.select("div.added_series_body.popular");
             Elements dataContainer = container.select("li");
 
@@ -67,24 +108,8 @@ public class PopularOnGoing {
         } catch (IOException e) {
             e.printStackTrace();
         }
-		
-		
-		
+
 	}
 	
-	
-	 private String getURL(String murl){
-
-	        if(murl.contains("url")){
-	            String[] temp=murl.split("url");
-	           String[] strings= temp[1].split("'");
-	           return strings[1];
-	        }
-
-	    return null;
-	    }
-
-	 public ArrayList<AnimeModel> getList() {
-		return list;
-	}
+	 
 }

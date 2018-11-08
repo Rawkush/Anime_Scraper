@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 
 
-public class Scrapper {
+public class Scraper {
 
 	
     private ArrayList<AnimeModel> recentAnimeList;
     private ArrayList<AnimeModel> popularOngoingAnimeList; // ongoing and popular
     private ArrayList<AnimeModel> searchedAnimeList;
-    public Scrapper() {
+    public Scraper() {
     	recentAnimeList= new ArrayList<>();
     	popularOngoingAnimeList= new ArrayList<>();
     	searchedAnimeList= new ArrayList<>();
