@@ -8,12 +8,15 @@ public class Scraper {
 
 	
     private ArrayList<AnimeModel> recentAnimeList;
+    private ArrayList<EpisodeModel> episodeList;
     private ArrayList<AnimeModel> popularOngoingAnimeList; // ongoing and popular
     private ArrayList<AnimeModel> searchedAnimeList;
+    
     public Scraper() {
     	recentAnimeList= new ArrayList<>();
     	popularOngoingAnimeList= new ArrayList<>();
     	searchedAnimeList= new ArrayList<>();
+    	episodeList=new ArrayList<>();
     }
 	
     
@@ -37,6 +40,12 @@ public class Scraper {
 		recentAnimeList.addAll(var.getList());
 	}
 	    
+	public void scrapeEpisodeList(String animeUrl) {
+		EpisodeList eplist= new EpisodeList(animeUrl);
+		eplist.startScraping();
+		episodeList.addAll(eplist.getEpisodeList());
+	}
+	
 	public ArrayList<AnimeModel> getRecentAnimeList(){
 		return recentAnimeList;
 	}
@@ -49,7 +58,9 @@ public class Scraper {
 		return searchedAnimeList;
 	}
 	
-	
+	public ArrayList<EpisodeModel> getEpisodeList(){
+		return episodeList;
+	}
 	
 	
 }
