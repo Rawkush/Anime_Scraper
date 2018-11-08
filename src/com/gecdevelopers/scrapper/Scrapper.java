@@ -22,7 +22,9 @@ public class Scrapper {
 	}
 	
 	public void scrapeForRecentAnimeList() {
-		
+		RecentAnimeScrapper var= new RecentAnimeScrapper();
+		var.startScraping();
+		recentAnimeList.addAll(var.getList());
 	}
 	
     
