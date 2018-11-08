@@ -1,20 +1,31 @@
 package com.gecdevelopers.scrapper;
 
 import java.util.ArrayList;
-import java.util.List;
+
+
 
 public class Scrapper {
 
 	
-    ArrayList<AnimeModel> recentAnimeList;
-    ArrayList<AnimeModel> popularOngoingAnimeList; // ongoing and popular
+    private ArrayList<AnimeModel> recentAnimeList;
+    private ArrayList<AnimeModel> popularOngoingAnimeList; // ongoing and popular
     
     public Scrapper() {
     	recentAnimeList= new ArrayList<>();
     	popularOngoingAnimeList= new ArrayList<>();
     }
 	
+    
 	
+	public void scrapeForPopularOngoingAnimeList() {
+		
+	}
+	
+	public void scrapeForRecentAnimeList() {
+		
+	}
+	
+    
 	public ArrayList<AnimeModel> getRecentAnimeList(){
 		return recentAnimeList;
 	}
@@ -22,6 +33,8 @@ public class Scrapper {
 	public ArrayList<AnimeModel> getPopularOngoindAnimeList(){
 		return popularOngoingAnimeList;
 	}
+	
+	
 	
 	
 	
