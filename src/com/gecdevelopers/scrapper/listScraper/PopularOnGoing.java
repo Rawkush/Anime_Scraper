@@ -2,6 +2,9 @@ package com.gecdevelopers.scrapper.listScraper;
 
 import java.util.ArrayList;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -16,19 +19,29 @@ public class PopularOnGoing {
     private final String  mainPageUrl="https://www4.gogoanime.se/";
     private final String pagedetails="page-recent-release-ongoing.html?page=";
     private ArrayList<AnimeModel> list;
+    private JSONObject  json;
 
 	
 	public PopularOnGoing() {
 		list= new ArrayList<>();
+        json= new JSONObject();
+
 	}
 	
 	
 	
-	public void startScraping() {
+	public JSONObject getPopularOngoingAnimes() {
 		
 		getAllPages();
 		
+		try {
+			createJSON();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
+		return json;
 	}
 	
 	
@@ -56,6 +69,7 @@ public class PopularOnGoing {
             Elements pagesContainer= container.select("li");
             for(Element pages:pagesContainer){
                 pageNumber++;
+                System.out.println("pages"+pages);
                 extractPage(mainPageUrl+pagedetails+pageNumber);
             }
 
@@ -113,6 +127,20 @@ public class PopularOnGoing {
         }
 
 	}
-	
+	private void createJSON() throws JSONException {
+	    	 
+	    	 JSONArray array = new JSONArray();
+	    	 for(AnimeModel ls: list) {
+	        	 JSONObject item= new JSONObject();
+	       			 item.put("title", ls.getTitle());    		 
+	    			 item.put("thumbnail", ls.getImgUrl());    		 
+	    			 item.put("latest episode", ls.getEpisode());
+	    			 item.put("url", ls.getNextPageUrl());
+	    			 array.put(item);
+	    	 }
+	    	 
+	    	 json.put("Recent Animes", array);
+	     }
+
 	 
 }

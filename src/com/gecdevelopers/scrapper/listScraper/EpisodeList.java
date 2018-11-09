@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -14,17 +17,19 @@ import com.gecdevelopers.scrapper.Models.EpisodeModel;
 public class EpisodeList {
 	
     final String baseUrl="https://www4.gogoanime.se";
-    ArrayList<EpisodeModel> episodeData;
-    String animeUrl;
+    private ArrayList<EpisodeModel> episodeData;
+    private String animeUrl;
     int numberOfEpisodes;
-    
-    public EpisodeList(String animeUrl) {
-    	this.animeUrl=animeUrl;
+    private JSONObject  json;
+
+    public EpisodeList() {
+    	this.animeUrl="";
     	episodeData=new ArrayList<>();
     	numberOfEpisodes=0;
+    	json= new JSONObject();
     }
     
-	public void startScraping() {
+	private void startScraping() {
 	
 		String url= urlCorrector(animeUrl);
 		  try {
@@ -65,7 +70,20 @@ public class EpisodeList {
 		
 	}
 	
-	
+	public JSONObject getEpisodesList(String animeUrl) {
+		
+		this.animeUrl= animeUrl;
+		
+		startScraping();
+		
+		try {
+			createJSON();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return json;
+	}
 	
 	private String urlCorrector(String url) {
 		String correctedUrl;
@@ -107,8 +125,8 @@ public class EpisodeList {
 
 	return URL;
 	}	
-
-	 private  boolean parseStrToInt(String str) {
+	
+	private  boolean parseStrToInt(String str) {
 	        if (str.matches("\\d+")) {
 	            return true;
 	        } else {
@@ -116,12 +134,27 @@ public class EpisodeList {
 	        }
 	    }
  
-	 private  String getProperUrl(String url){
+	private  String getProperUrl(String url){
 		 return url.replaceFirst("category/",""); 
 	 }
 
-	 public ArrayList<EpisodeModel> getEpisodeList() {
+	public ArrayList<EpisodeModel> getEpisodeList() {
 		return episodeData;
 	}
+	 
+	private void createJSON() throws JSONException {
+	    	 
+	    	 JSONArray array = new JSONArray();
+	    	 for(EpisodeModel ls: episodeData) {
+	        	 JSONObject item= new JSONObject();
+	       			 item.put("episode", ls.getEpisode());    		 
+	    			 item.put("url", ls.getEpisodeUrl());    		 
+	    			 array.put(item);
+	    	 }
+	    	 
+	    	 json.put("Recent Animes", array);
+	     }
+
+	 
 	 
 }

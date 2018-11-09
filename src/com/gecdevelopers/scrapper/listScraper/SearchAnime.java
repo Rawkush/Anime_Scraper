@@ -2,6 +2,9 @@ package com.gecdevelopers.scrapper.listScraper;
 
 import java.util.ArrayList;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -17,17 +20,35 @@ public class SearchAnime {
 	public ArrayList<AnimeModel> list;
     private final String url="https://www4.gogoanime.se/search.html?keyword=";
     private String animeName;
+    private JSONObject  json;
 
 	
 	
-    public SearchAnime(String animeName) {
+    public SearchAnime() {
 		// TODO Auto-generated constructor stub
 	   list= new ArrayList<>();
-	   this.animeName=animeName;
+	   this.animeName="";
+	   json= new JSONObject();
     }
 
 	
-	public void startScraping() {
+    public JSONObject getSearchedItem(String AnimeName) {
+		// TODO Auto-generated method stub
+    	this.animeName=AnimeName;
+    	startScraping();
+    	
+    	try {
+			createJSON();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	return json;
+    	
+	}
+    
+	private void startScraping() {
 		
 		 try {
 	            Document doc = Jsoup.connect(getUrl()).get();
@@ -63,11 +84,6 @@ public class SearchAnime {
 		
 	}
 	
-	public ArrayList<AnimeModel> getList() {
-			return list;
-		
-	}
-	 
 	 
 	private String getUrl() {
 		
@@ -89,5 +105,19 @@ public class SearchAnime {
 	    return tmp;
 	}
 	
-	
+	   private void createJSON() throws JSONException {
+	    	 
+	    	 JSONArray array = new JSONArray();
+	    	 for(AnimeModel ls: list) {
+	        	 JSONObject item= new JSONObject();
+	       			 item.put("title", ls.getTitle());    		 
+	    			 item.put("thumbnail", ls.getImgUrl());    		 
+	    			 item.put("latest episode", ls.getEpisode());
+	    			 item.put("url", ls.getNextPageUrl());
+	    			 array.put(item);
+	    	 }
+	    	 
+	    	 json.put("Recent Animes", array);
+	     }
+
 }

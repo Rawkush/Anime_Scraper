@@ -3,6 +3,9 @@ package com.gecdevelopers.scrapper.listScraper;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -14,17 +17,29 @@ public class RecentAnimeScrapper {
 	
 	 private ArrayList<AnimeModel> list;
      private final String mainPageUrl="https://www4.gogoanime.se";
-
-	 
+     private JSONObject  json;
+     
 	 public RecentAnimeScrapper(){
 	        list= new ArrayList<>();  
+	        json= new JSONObject();
 	 }
-	 
-	 
     
-     public void startScraping() {
-
+     public JSONObject getRecentAnimes() {
+        
+    	 startScraping();
+    	 
          try {
+			createJSON();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+         return json;
+     }
+     
+     private void startScraping() {
+    	 
+    	 try {
              Document doc = Jsoup.connect(mainPageUrl).get();
              Elements container = doc.select("div.last_episodes.loaddub");
              Elements container2 = container.select("ul.items");
@@ -55,14 +70,26 @@ public class RecentAnimeScrapper {
                  list.add(new AnimeModel(episode, imgLink, title, nextPageLink));
              }
 
-
          } catch (IOException e) {
              e.printStackTrace();
          }
-         
-         
+     
      }
-
+                             
+     private void createJSON() throws JSONException {
+    	 
+    	 JSONArray array = new JSONArray();
+    	 for(AnimeModel ls: list) {
+        	 JSONObject item= new JSONObject();
+       			 item.put("title", ls.getTitle());    		 
+    			 item.put("thumbnail", ls.getImgUrl());    		 
+    			 item.put("latest episode", ls.getEpisode());
+    			 item.put("url", ls.getNextPageUrl());
+    			 array.put(item);
+    	 }
+    	 
+    	 json.put("Recent Animes", array);
+     }
 
      public ArrayList<AnimeModel> getList() {
          return list;
