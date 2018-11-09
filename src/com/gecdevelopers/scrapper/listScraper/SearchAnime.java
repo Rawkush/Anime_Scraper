@@ -117,7 +117,7 @@ public class SearchAnime {
 	    			 array.put(item);
 	    	 }
 	    	 
-	    	 json.put("Recent Animes", array);
+	    	 json.put("Searched Animes", array);
 	     }
 
 }

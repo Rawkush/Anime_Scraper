@@ -152,7 +152,7 @@ public class EpisodeList {
 	    			 array.put(item);
 	    	 }
 	    	 
-	    	 json.put("Recent Animes", array);
+	    	 json.put("Episodes", array);
 	     }
 
 	 

@@ -6,7 +6,7 @@ public class demo {
 		System.out.println("hello");
 		Scraper var= new Scraper();
 		
-		System.out.println(var.getPopularOngoing().toString());
+		System.out.println(var.searchAnime("naruto sh").toString());
 		
 		//var.scrapeForPopularOngoingAnimeList();
 		/*

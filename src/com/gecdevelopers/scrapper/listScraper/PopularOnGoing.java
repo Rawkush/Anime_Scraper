@@ -139,7 +139,7 @@ public class PopularOnGoing {
 	    			 array.put(item);
 	    	 }
 	    	 
-	    	 json.put("Recent Animes", array);
+	    	 json.put("Popular Ongoing", array);
 	     }
 
 	 

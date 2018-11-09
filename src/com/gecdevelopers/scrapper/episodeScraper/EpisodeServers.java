@@ -66,7 +66,7 @@ public class EpisodeServers {
 	    			 array.put(item);
 	    	 }
 	    	 
-	    	 json.put("Recent Animes", array);
+	    	 json.put("Servers", array);
 	     }
 
 	 
