@@ -1,4 +1,4 @@
-package com.gecdevelopers.scrapper;
+package com.gecdevelopers.scrapper.listScraper;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -7,6 +7,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import com.gecdevelopers.scrapper.Models.AnimeModel;
 public class RecentAnimeScrapper {
 	
 	

@@ -1,4 +1,4 @@
-package com.gecdevelopers.scrapper;
+package com.gecdevelopers.scrapper.Models;
 
 public class AnimeModel {
 

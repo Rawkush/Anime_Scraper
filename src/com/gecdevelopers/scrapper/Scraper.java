@@ -2,6 +2,14 @@ package com.gecdevelopers.scrapper;
 
 import java.util.ArrayList;
 
+import com.gecdevelopers.scrapper.Models.AnimeModel;
+import com.gecdevelopers.scrapper.Models.EpisodeModel;
+import com.gecdevelopers.scrapper.episodeScraper.EpisodeServers;
+import com.gecdevelopers.scrapper.listScraper.EpisodeList;
+import com.gecdevelopers.scrapper.listScraper.PopularOnGoing;
+import com.gecdevelopers.scrapper.listScraper.RecentAnimeScrapper;
+import com.gecdevelopers.scrapper.listScraper.SearchAnime;
+
 
 
 public class Scraper {
@@ -11,18 +19,26 @@ public class Scraper {
     private ArrayList<EpisodeModel> episodeList;
     private ArrayList<AnimeModel> popularOngoingAnimeList; // ongoing and popular
     private ArrayList<AnimeModel> searchedAnimeList;
-    
+    private ArrayList<EpisodeModel> serverList;
     public Scraper() {
     	recentAnimeList= new ArrayList<>();
     	popularOngoingAnimeList= new ArrayList<>();
     	searchedAnimeList= new ArrayList<>();
     	episodeList=new ArrayList<>();
+    	serverList= new ArrayList<>();
     }
 	
     
     
+    public void startScrapingServers(String url) {
+    	
+    	EpisodeServers var= new EpisodeServers();
+    	var.startScraping(url);
+    	serverList.addAll(var.getServersList());
+    			
+    }
     
-    public void startSearching(String animeName) {
+    void startSearching(String animeName) {
     	SearchAnime var= new SearchAnime(animeName);
     	var.startScraping();
     	searchedAnimeList.addAll(var.getList());
@@ -60,6 +76,11 @@ public class Scraper {
 	
 	public ArrayList<EpisodeModel> getEpisodeList(){
 		return episodeList;
+	}
+	
+	
+	public ArrayList<EpisodeModel> getServerList(){
+		return serverList;
 	}
 	
 	
