@@ -166,5 +166,10 @@ public class AnimeEpisodes implements AnimeFetch{
     
     }
 
+    @Override
+    public JSONObject getSearchedAnime(String animeName) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 }

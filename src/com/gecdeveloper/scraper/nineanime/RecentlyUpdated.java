@@ -28,11 +28,9 @@ public class RecentlyUpdated implements AnimeFetch{
     private JSONObject  json;
     public RecentlyUpdated(){ 
         json= new JSONObject();
-        //TODO remove startScraping call from here
-        startScraping();
      }
 
-    private void startScraping(){
+    private void startScraping() throws JSONException{
         
         try {
             Document doc = Jsoup.connect(mainPageUrl).get();
@@ -94,7 +92,12 @@ public class RecentlyUpdated implements AnimeFetch{
     
     @Override
     public JSONObject getAnimes() throws UnknownHostException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            startScraping();
+        } catch (JSONException ex) {
+            Logger.getLogger(RecentlyUpdated.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return json;    
     }
 
     @Override
