@@ -60,7 +60,7 @@ Want to contribute? Great!
 Fork your own copy of this repository, make changes, update, fix bugs, add additional features or just prettify the code and create a pull request explaining what have you added fixed or improved so that we can merge it to our branch.
 
 
-#  Note
+
 
 This library is being developed to be used in [RawAnime ](https://github.com/Rawkush/RawAnime)  Andriod application, but feel free to use it in your project. 
 
@@ -68,6 +68,9 @@ This Library is created for education purpose only and we shall not be responsib
 
 #### If you are using our library please do tell us so we can add your project link.
 
-##### Note: If broken create the new issue I will try to fix it ASAP
+
+####  Note(INCOMPLETE)
+
+Note due to some reason Api for RawAnime is made from new and private, this repo does not scrapes video link right now, meanwhile this repo is left incomplete, althogh if you want to extend it you are well come to do so.
 
 ## Arigatou Gozaimasu
