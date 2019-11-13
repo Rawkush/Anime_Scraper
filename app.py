@@ -34,6 +34,17 @@ def getEpisode( url,  ep_num):
     data={'stream':[{l['class'][0]:l.a['data-video']} for l in ep ], "download":down[-1]['href']}
     return json.dumps(data)
 
+
+def search(anime):
+    URL=BASE_URL+'search.html?keyword='
+    anime= URL+anime
+    page = requests.get(anime)
+    soup = BeautifulSoup(page.content, 'html5lib') 
+    table = soup.find('div', attrs = {'class':'last_episodes'}).find_all('li')
+    data=[ {'title':x.find('p','name').a['title'], 'img':x.div.a.img['src'],'url':x.div.a['href'],'released': x.find('p','released').text.strip()}   for x in table]
+    return json.dumps(data)
+
+
 # app
 app = Flask(__name__)
 
@@ -50,6 +61,8 @@ def predict():
     
     elif req["intent"]=="episode":
         return getEpisode(req["url"],req["episode_number"])
+    elif req['intent']=='search':
+        return search(req['anime'])
 
     return getNew()
 
