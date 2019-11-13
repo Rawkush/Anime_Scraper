@@ -1,16 +1,20 @@
-# GogoScraper:-
+# Anime Scraper:-
    
-GoGoScraper is a java library that provides unofficial api to scrape the gogoanime website. This library scrapes the gogoanime Website and returns the data as JSON Object.
+Anime is a library that provides unofficial api to scrape the gogoanime, nine anime website. This library scrapes the gogoanime  and nine anime Website and returns the data as JSON Object.
 
-# Features Provided
+#### java library is can be used by downloading and importing it into your application, however you can use our api made from python also
+
+# Features Provided by Python api
+ - List of REcently updated Animes
+ - Searching the animes
+
+# Features Provided by java Lib
 
  - List of Recently updated Animes
  - List of Popular Ongoing Animes
  - Searching the Animes
- - Every Episode link 
- - Different video servers for streaming
  
- # How to Use
+ # How to Use java lib
  - Import this library to your project 
 
 #### To  Get list of recently updated animes
@@ -38,17 +42,63 @@ animes.getAllEpisodes(animeUrl); // animeUrl is a String
 ### Video link from different Servers
 
 ```
-animes..getServers(url); // url is a String
+animes.getServers(url); // url is a String
 ```
 
 ##### For  complete code example checkout the demo.java file in the repository
 
-# Screenshot of JSON
+## Screenshot of JSON
 ![enter image description here](https://user-images.githubusercontent.com/25636146/48275506-a83cf180-e46b-11e8-9263-52fcba01b560.png)
 
-# Library Used
+## Library Used
 - Jsoup
 - java-JSON 
+
+# For Python API
+
+Make the post request on the given url, the data post should be in JSON
+
+  ```url = 'https://cbpgeca.herokuapp.com/' ```
+and in that JSON intent key whould be present which specifies what api to call, example of json given below
+
+### For recently updated anime
+```
+   {
+      "intent":"new"
+   }
+```   
+### For searching anime
+```
+   {
+      "intent":"search"
+      "anime": "naruto shippuden"
+   }
+
+```
+
+### Get details of specific anime
+
+```
+   {
+      "intent":"getAnime"
+      "url":"http//:gogoanime.com/naruto"
+   }
+  
+```
+
+### Get video link
+```
+   {
+      "intent":"episode"
+      "url": "http//:www.gogoanime.com/naruto/"
+      "episode_number":"13"
+   }
+
+```
+# Note:
+
+The above key values are required for the api to work, and all requests are handled by the same base url, for different functionality just the data posted will be changed as suggested above
+
 
 # Projects Using GogoScraper
 - [RawAnime](https://github.com/Rawkush/RawAnime)
