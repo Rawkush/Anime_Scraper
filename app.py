@@ -10,6 +10,7 @@ def getNew():
     soup = BeautifulSoup(page.content, "html.parser") 
     table = soup.find('div', attrs = {'class':'last_episodes loaddub'}).find_all('li')
     data=[ {'url':r.div.a['href'],'title':r.div.a['title'],'img':r.div.img['src'], 'episode':r.find('p','episode').text}     for r in table]
+    data={"data":data}    
     return json.dumps(data)
 
 
@@ -22,6 +23,7 @@ def getAnime( url):
     url=url[0]+url[1]
     table = soup.find('div', attrs = {'class':'anime_info_body'})
     data={'img':table.img['src'],'title':table.h1.text,'base_url':url,'episodes':ep.a['ep_end'], 'other':[{x.span.text:x.text}  for x in table.find_all('p',attrs={'class':'type'})] }
+    data={"data":data}
     return json.dumps(data)
 
 
@@ -32,6 +34,8 @@ def getEpisode( url,  ep_num):
     ep=soup.find('div',attrs={'class':'anime_muti_link'}).find_all('li')
     down=soup.find('div',attrs={'class':'anime_video_body_cate'}).find_all('a')
     data={'stream':[{l['class'][0]:l.a['data-video']} for l in ep ], "download":down[-1]['href']}
+    data={"data":data}
+
     return json.dumps(data)
 
 
@@ -42,6 +46,8 @@ def search(anime):
     soup = BeautifulSoup(page.content, "html.parser") 
     table = soup.find('div', attrs = {'class':'last_episodes'}).find_all('li')
     data=[ {'title':x.find('p','name').a['title'], 'img':x.div.a.img['src'],'url':x.div.a['href'],'released': x.find('p','released').text.strip()}   for x in table]
+    data={"data":data}
+    
     return json.dumps(data)
 
 
