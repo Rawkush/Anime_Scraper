@@ -119,8 +119,11 @@ This Library is created for education purpose only and we shall not be responsib
 #### If you are using our library please do tell us so we can add your project link.
 
 
-####  Note(INCOMPLETE)
+##  TODO
+ - getting direct link of videos 
+ - getting download links from horriblesub
 
-Note due to some reason Api for RawAnime is made from new and private, this repo does not scrapes video link right now, meanwhile this repo is left incomplete, althogh if you want to extend it you are well come to do so.
+# IMPORTANT NOTE
+ This is API in created without the consent of the owner of the websites, the main purpose of this project was for me to learn webscraping, so if you want to use our API, we are not be held responsible for any legal action taken on you by the owner.
 
 ## Arigatou Gozaimasu
