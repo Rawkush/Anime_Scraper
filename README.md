@@ -1,29 +1,26 @@
 # Anime Scraper:-
    
-Anime is a library that provides unofficial api to scrape the gogoanime, nine anime website. This library scrapes the gogoanime  and nine anime Website and returns the data as JSON Object.
+Anime Scraper is a library that provides unofficial api to scrape the diiferent anime streaming platform like gogoanime, nine anime website returns the data as JSON Object. This repository is broken into two pieces one contains <b>java scraper</b> and other contains <b> python scraper</b>.
+</br>This project is created fo the purpose of using it into RawAnime.</br>
+If you are using our project feel free to give us credit :)
 
-#### java library is can be used by downloading and importing it into your application, however you can use our api made from python also
 
-# Features Provided by Python api
- - List of REcently updated Animes
- - Searching the animes
+#### java library is can be used by downloading and importing it into your application, however our api made from python is the only one maintained and supports multiple servers
 
-# Features Provided by java Lib
 
- - List of Recently updated Animes
- - List of Popular Ongoing Animes
- - Searching the Animes
- 
  # How to Use java lib
  - Import this library to your project 
 
 #### To  Get list of recently updated animes
+
+
 ```
+// initalize the variable
 Scraper animes= new Scraper();
 animes.getRecentlyUpdated(); // returns JSON Object
   ``` 
    
-  #### Popular Animes
+#### Popular Animes
   ```
 animes.getPopularOngoing(); // returns JSON Object
 ```
@@ -121,9 +118,30 @@ This Library is created for education purpose only and we shall not be responsib
 
 ##  TODO
  - getting direct link of videos 
- - getting download links from horriblesub
+ - adding more anime streaming websites
+ - Download or stream any episode or episode range of any anime.
+ - Specify the quality you want to stream or download.
 
+### Supported Websites 
+ 
+ - 9anime.to
+ - kissanime.ru
+ - gogoanime (currently this is the only one supported)
+ - horriblesub.
+ - animekisa
+ - anistream
+ - wonderfulsub
+ - chia anime
+ - ryuanime
+ - BestAnimes
+ - animeultima
+ - animepahe
+ - KissCartoon
+ - twist.moe
+ - animeflix (supported as it have API's)
+ 
+ 
 # IMPORTANT NOTE
- This is API in created without the consent of the owner of the websites, the main purpose of this project was for me to learn webscraping, so if you want to use our API, we are not be held responsible for any legal action taken on you by the owner.
+ This is API in created without the consent of the owner of the websites, the main purpose of this project was for me to learn webscraping, so if you want to use our API, we are not be held responsible for any legal action taken on you by the owner. 
 
 ## Arigatou Gozaimasu
