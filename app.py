@@ -2,7 +2,6 @@
 from flask import jsonify, request,Flask,json
 import requests
 from bs4 import BeautifulSoup
-BASE_URL="https://www.gogoanime.io/"
 
 
 def getNew():
@@ -54,7 +53,7 @@ def search(anime):
 # app
 app = Flask(__name__)
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET'])
 def predict():
     
     # get data
