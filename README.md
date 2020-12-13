@@ -1,4 +1,19 @@
 # Anime Scraper:-
+
+
+
+ ![Maintenance](https://img.shields.io/badge/Maintained%3F-No-red.svg)  ![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)
+ 
+ ![website](https://img.shields.io/badge/website-up-green) ![Maintenance](https://img.shields.io/badge/Maintained%3F-No-red.svg)  ![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)
+ ![GitHub last commit](https://img.shields.io/github/last-commit/rawkush/Anime_Scraper?style=plastic)
+ ![GitHub Release Date](https://img.shields.io/github/release-date/rawkush/Anime_Scraper?style=plastic) ![Lines of code](https://img.shields.io/tokei/lines/github/rawkush/Anime_Scraper?style=plastic)
+   ![GitHub issues](https://img.shields.io/github/issues/rawkush/Anime_Scraper?style=plastic) ![GitHub closed issues](https://img.shields.io/github/issues-closed/rawkush/Anime_Scraper?style=plastic)    ![GitHub forks](https://img.shields.io/github/forks/rawkush/Anime_Scraper?style=social)
+   ![GitHub Repo stars](https://img.shields.io/github/stars/rawkush/Anime_Scraper?style=social)
+   ![GitHub watchers](https://img.shields.io/github/watchers/rawkush/Anime_Scraper?style=social) <br /> ![GitHub all releases](https://img.shields.io/github/downloads/rawkush/Anime_Scraper/total?style=plastic) <br />
+
+   ![GitHub](https://img.shields.io/github/license/rawkush/Anime_Scraper?style=plastic)
+   [![HitCount](http://hits.dwyl.com/rawkush/Anime_Scraper.svg)](http://hits.dwyl.com/rawkush/Anime_Scraper)
+   
    
 Anime Scraper is a library that provides unofficial api to scrape the diiferent anime streaming platform like gogoanime, nine anime website returns the data as JSON Object. This repository is broken into two pieces one contains <b>java scraper</b> and other contains <b> python scraper</b>.
 </br>This project is created fo the purpose of using it into RawAnime.</br>
