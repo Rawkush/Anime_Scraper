@@ -1,9 +1,5 @@
 # Anime Scraper:-
 
-
-
- ![Maintenance](https://img.shields.io/badge/Maintained%3F-No-red.svg)  ![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)
- 
  ![website](https://img.shields.io/badge/website-up-green) ![Maintenance](https://img.shields.io/badge/Maintained%3F-No-red.svg)  ![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)
  ![GitHub last commit](https://img.shields.io/github/last-commit/rawkush/Anime_Scraper?style=plastic)
  ![GitHub Release Date](https://img.shields.io/github/release-date/rawkush/Anime_Scraper?style=plastic) ![Lines of code](https://img.shields.io/tokei/lines/github/rawkush/Anime_Scraper?style=plastic)
