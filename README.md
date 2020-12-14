@@ -8,8 +8,7 @@
    ![GitHub watchers](https://img.shields.io/github/watchers/rawkush/Anime_Scraper?style=social) <br /> ![GitHub all releases](https://img.shields.io/github/downloads/rawkush/Anime_Scraper/total?style=plastic) <br />
 
    ![GitHub](https://img.shields.io/github/license/rawkush/Anime_Scraper?style=plastic)
-   [![HitCount](http://hits.dwyl.com/rawkush/Anime_Scraper.svg)](http://hits.dwyl.com/rawkush/Anime_Scraper)
-   
+![ViewCount](https://views.whatilearened.today/views/github/rawkush/anime_scraper.svg)   
    
 Anime Scraper is a library that provides unofficial api to scrape the diiferent anime streaming platform like gogoanime, nine anime website returns the data as JSON Object. This repository is broken into two pieces one contains <b>java scraper</b> and other contains <b> python scraper</b>.
 </br>This project is created fo the purpose of using it into RawAnime.</br>
