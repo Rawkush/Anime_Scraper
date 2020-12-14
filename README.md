@@ -65,7 +65,7 @@ animes.getServers(url); // url is a String
 
 Make the post request on the given url, the data post should be in JSON
 
-  ```url = 'https://cbpgeca.herokuapp.com/' ```
+  ```url = 'https://rawanime.herokuapp.com/' ```
 and in that JSON intent key whould be present which specifies what api to call, example of json given below
 
 ### For recently updated anime
